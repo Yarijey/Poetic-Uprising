@@ -20,11 +20,10 @@ router.post('/', async (req, res) => {
 // Endpoint to get a random word/words
 router.get('/random', async (req, res) => {
   try {
-    // Fetch a single random word or modify to fetch a set of words
-    let randomWord = await Word.aggregate([{ $sample: { size: 20 } }]);
-    res.status(200).json(randomWord);
+    let randomWords = await Word.aggregate([{ $sample: { size: 20 } }]);
+    res.status(200).json(randomWords);
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ error: error.message });
   }
 });
 

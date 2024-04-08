@@ -22,7 +22,7 @@
     "eject": "react-scripts eject",
     "prettify": "prettier --write ."
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "http://localhost:5001",
   "browserslist": {
     "production": [
       ">0.2%",

@@ -2,21 +2,18 @@ const mongoose = require('mongoose');
 
 // Define the schema for the words
 const wordSchema = new mongoose.Schema({
+  word: {
+    type: String,
+    required: true,
+  },
   author: {
     type: String,
-    required: true // assuming the author is required, set to false if not
+    required: true,
   },
   title: {
     type: String,
-    required: true // assuming the title is required, set to false if not
+    required: true,
   },
-  content: {
-    type: String,
-    required: true // assuming the content is required, set to false if not
-  },
-  words: [{
-    type: String
-  }]
 });
 
 // Create a model from the schema

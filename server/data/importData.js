@@ -13,22 +13,30 @@ const data = require('./updatedWordPoemDatabase.json'); // Adjust the path as ne
 
 const importData = async () => {
   try {
-    // Connecting to MongoDB using the URI from environment variables
     await mongoose.connect(process.env.MONGO_URI);
     console.log('Connected to MongoDB');
+    
+    // Clear the existing Words collection if needed
+    await Word.deleteMany({});
 
-    // Inserting the data
-    await Word.insertMany(data);
+    // Insert new Words into the collection
+    for (let poem of data) {
+      for (let word of poem.words) {
+        await new Word({
+          word: word,
+          author: poem.author,
+          title: poem.title,
+        }).save();
+      }
+    }
+
     console.log('Data import successful');
   } catch (error) {
-    // Logging any errors that occur during the import or connection process
     console.error('Error importing data:', error);
   } finally {
-    // Disconnecting from MongoDB once the import is complete or if an error occurs
     await mongoose.disconnect();
     console.log('Disconnected from MongoDB');
   }
 };
 
-// Executing the importData function
 importData();
