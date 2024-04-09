@@ -1,0 +1,30 @@
+/* src/components/RandomWords.css */
+.random-words-container {
+  padding: 30px;
+  text-align: justify;
+}
+
+.random-words-button {
+  margin-bottom: 20px; /* Space between button and words */
+  cursor: pointer;
+  /* Add more styling for the button here */
+}
+
+.words-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* Adjust the space between word boxes */
+  margin-bottom: 20px; /* Space between the words and the next content */
+}
+
+.word-box {
+  border: 1px solid #000; /* Fine black border */
+  padding: 5px 10px; /* Adjust padding inside the word boxes */
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-size: 1.5rem; /* Larger text size for words */
+  white-space: nowrap; /* Prevents the text inside the box from wrapping */
+}
+
+/* Add media query styles here */
