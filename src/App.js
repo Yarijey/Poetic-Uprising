@@ -8,25 +8,17 @@ import GlobalStyle from './globalStyle';
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Tracks whether user is logged in
 
-  // function called when user successfully logs in or signs up
-  const handleLoginSuccess = (token) => {
-    localStorage.setItem('token', token); // Save token in local storage token
+   // function called when user successfully logs in or signs up
+   const handleAuthenticationSuccess = (token) => {
+    localStorage.setItem('token', token); // Save token in local storage
     setIsLoggedIn(true); // Update state to reflect user is logged in
-  };
-
-  const handleSignUpSuccess = (token) => {
-    localStorage.setItem('token', token); // Save the token in local storage
-    setIsLoggedIn(true); // Update the state to reflect the user is logged in
   };
 
   return (
     <>
       <GlobalStyle />
-      {isLoggedIn ? (
-         <HomePage
-         onLoginSuccess={handleLoginSuccess}
-         onSignUpSuccess={handleSignUpSuccess}
-       />
+      {!isLoggedIn ? (
+        <HomePage onAuthenticationSuccess={handleAuthenticationSuccess} />
       ) : (
         <RandomWords includeDetails={false} />
       )}

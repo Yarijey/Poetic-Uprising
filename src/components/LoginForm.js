@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-const LoginForm = ({ onLoginSuccess }) => {
+const LoginForm = ({ onAuthenticationSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,7 +20,8 @@ const LoginForm = ({ onLoginSuccess }) => {
       
       if (data.token) {
         // If a token is returned, login is successful
-        onLoginSuccess();
+        // Call onAuthenticationSuccess and pass the token
+        onAuthenticationSuccess(data.token);
       } else {
         // Handle errors 
         alert('Login failed');
