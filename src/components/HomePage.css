@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ffff00; /*  yellow */
+  background-color: yellow; /*  yellow */
   color: 110E0B; /* Smoky Black */
   font-family: 'Sunflower', sans-serif;
   padding: 60px 20px; /* Adjust the padding to fit  */
@@ -23,6 +23,7 @@
   padding: 10px 20px;
   margin: 10px;
   border: none;
+  border-radius: 25px;
   font-size: 1.2rem; /* Adjust the font-size as needed */
   cursor: pointer;
 }
