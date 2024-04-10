@@ -1,0 +1,25 @@
+/* src/components/SignupForm.css */
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px; /* Adjust as needed */
+}
+
+.signup-input {
+  margin-bottom: 20px; /* Space between inputs */
+  padding: 10px;
+  border: 1px solid #ddd; /* Light grey border */
+  border-radius: 5px;
+}
+
+.signup-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}

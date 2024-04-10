@@ -1,0 +1,38 @@
+/* src/components/HomePage.css */
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ffff00; /*  yellow */
+  color: 110E0B; /* Smoky Black */
+  font-family: 'Sunflower', sans-serif;
+  padding: 60px 20px; /* Adjust the padding to fit  */
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 30px; /* Space between the about section and buttons */
+}
+
+.about-section {
+  margin: 20px 0; /* Spacing around the about section */
+}
+
+.login-button, .join-button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  font-size: 1.2rem; /* Adjust the font-size as needed */
+  cursor: pointer;
+}
+
+.login-button {
+  background-color: 110E0B;
+  color: dedad8; /* Timberwolf */
+}
+
+.join-button {
+  background-color: f06bdb; /* Orchid color */
+  color: 110E0B;
+}

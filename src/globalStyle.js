@@ -78,8 +78,10 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     padding-left: 20px;
   }
-
-  /* Add other global styles as needed */
 `;
+
+
+
+
 
 export default GlobalStyle;
