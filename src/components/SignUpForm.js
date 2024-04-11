@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import './SignupForm.css'; // Make sure to create this CSS file
 
-const SignUpForm = ({ onSignUp }) => {
+const SignupForm = ({ onSignUp }) => {
   // Define state for each input field
   const [formData, setFormData] = useState({
     firstName: '',
@@ -26,6 +26,7 @@ const SignUpForm = ({ onSignUp }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('onSignUp prop:', onSignUp);
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords don't match");
       return;
@@ -35,7 +36,12 @@ const SignUpForm = ({ onSignUp }) => {
       return;
     }
     // Call the onSignUp callback with formData
-    onSignUp(formData);
+    // Check if onSignUp is a function before calling it
+    if (typeof onSignUp === 'function') {
+      onSignUp(formData);
+    } else {
+      console.error('onSignUp is not a function');
+    }
   };
 
   return (
@@ -57,4 +63,4 @@ const SignUpForm = ({ onSignUp }) => {
   );
 };
 
-export default SignUpForm;
+export default SignupForm;

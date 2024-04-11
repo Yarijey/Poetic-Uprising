@@ -1,5 +1,7 @@
 // server/routes/users.js
 
+require('dotenv').config();
+
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -8,19 +10,44 @@ const User = require('../models/user');
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
+  console.log('Signup request body:', req.body);
   try {
-    const { email, password, firstName, lastName, birthday, username } = req.body;
-      // Hash the password before saving
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, salt);
-    const user = new User({ email, password: hashedPassword, firstName, lastName, birthday, username });
+    // Extract confirmPassword and collect the rest of the body data into userData
+    const { confirmPassword, termsAccepted, ...userData } = req.body;
+
+       // Before creating a new user, check if the email or username already exists
+       const existingUserByEmail = await User.findOne({ email: userData.email });
+       if (existingUserByEmail) {
+         return res.status(400).send({ error: 'Email already in use.' });
+       }
+
+       const existingUserByUsername = await User.findOne({ username: userData.username });
+       if (existingUserByUsername) {
+         return res.status(400).send({ error: 'Username already taken.' });
+       }
+
+    // Since the email is not in use, proceed to create the user
+    const user = new User(userData);
     await user.save();
+
+    // Check if JWT_SECRET is defined
+    const jwtSecret = process.env.JWT_SECRET;
+    if (!jwtSecret) {
+      throw new Error('JWT_SECRET is not defined. Check your .env file.');
+    }
 
     // Generate a token and respond
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
     res.status(201).send({ token });
   } catch (error) {
-    res.status(400).send(error);
+    console.error('Signup error:', error);
+
+    // Handle the duplicate key error
+    if (error.code === 11000) {
+      res.status(400).send({ error: 'Email or username is already registered.' });
+    } else {
+      res.status(400).send({ error: error.message || 'Signup failed due to invalid input' });
+    }
   }
 });
 

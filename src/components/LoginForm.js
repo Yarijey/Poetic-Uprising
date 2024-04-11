@@ -16,6 +16,11 @@ const LoginForm = ({ onAuthenticationSuccess }) => {
         },
         body: JSON.stringify({ email, password }),
       });
+
+         // Check if the response is OK
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
       const data = await response.json();
       
       if (data.token) {
@@ -28,7 +33,7 @@ const LoginForm = ({ onAuthenticationSuccess }) => {
       }
     } catch (error) {
       console.error('Error logging in:', error);
-      alert('Login failed');
+      alert('Login failed'+ error.message);
     }
   };
 
