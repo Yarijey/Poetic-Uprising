@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyle /> 
       {!isLoggedIn ? (
         <HomePage onAuthenticationSuccess={handleAuthenticationSuccess} />
       ) : (

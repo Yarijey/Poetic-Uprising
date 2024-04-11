@@ -6,7 +6,7 @@ import { useDrag } from 'react-dnd';
 const DraggableWordBox = ({ item, includeDetails }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "word",
-    item, // pass item directly
+    item: { word: item }, // Ensure 'item' is an object with the 'word' property
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),

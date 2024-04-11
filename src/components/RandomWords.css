@@ -4,10 +4,13 @@
   text-align: justify;
 }
 
-.random-words-button {
-  margin-bottom: 20px; /* Space between button and words */
+.random-words-button,
+.shuffle-words-button, /* Added class for the shuffle button */
+.save-poem-button { /* Added class for the save button */
+  margin-top: 10px;
+  margin-bottom: 20px;
   cursor: pointer;
-  /* Add more styling for the button here */
+  /* You can add more styling here for the buttons */
 }
 
 .words-container {
@@ -19,12 +22,31 @@
 }
 
 .word-box {
-  border: 1px solid #000; /* Fine black border */
-  padding: 5px 10px; /* Adjust padding inside the word boxes */
+  border: 1px solid #110E0B;
+  padding: 5px 10px;
   font-family: "DM Mono", monospace;
   font-weight: 400;
-  font-size: 1.5rem; /* Larger text size for words */
-  white-space: nowrap; /* Prevents the text inside the box from wrapping */
+  font-size: 1.5rem;
+  white-space: nowrap;
+  cursor: pointer; /* Makes it clear the words can be dragged */
+  pointer-events: auto;  
+}
+
+.poem-drop-zone {
+  min-height: 100px;
+  border: 1px dashed #aaa;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8; /* Optional: a light background color can make the drop zone more visible */
+}
+
+.dropped-word {
+  display: inline-block; /* Adjust display as needed */
+  margin: 5px;
+  padding: 3px;
+  border: 1px solid #110E0B; /* Just an example, style as needed */
 }
 
 /* Add media query styles here */
