@@ -14,6 +14,8 @@ const RandomWords = ({ includeDetails }) => {
   const navigate = useNavigate(); // For redirection
   const [showShuffle, setShowShuffle] = useState(false); // State control visibility of shuffle button
   const [showSave, setShowSave] = useState(false); // State control visibility of save button
+  const [droppedWords, setDroppedWords] = useState([]);
+
 
   useEffect(() => {
     // fetchRandomWords(); trigger fetchRandomWords only on button click.
@@ -36,7 +38,7 @@ const RandomWords = ({ includeDetails }) => {
 
   // Function to shuffle words
   const shuffleWords = () => {
-    let array = [...words];
+    let array = words.map(word => ({ ...word })); // Clone objects to break references
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
@@ -48,46 +50,53 @@ const RandomWords = ({ includeDetails }) => {
   const handleDrop = (item) => {
     console.log("Dropped item:", item); // This will log the dropped item to the console
 
-    setPoemWords((prevPoemWords) => {
-      const newWord = item.word; // We're now using 'word' from the object
-      if (newWord && !prevPoemWords.includes(newWord)) {
-        return [...prevPoemWords, newWord];
+    setDroppedWords((prevDroppedWords) => {
+      const newWord = item.word;
+      if (newWord && !prevDroppedWords.includes(newWord)) {
+        setShowSave(true); // Show save button if not already visible
+        return [...prevDroppedWords, newWord];
       }
-      return prevPoemWords;
+      return prevDroppedWords;
     });
   };
 
-  // Function to save poem
-  const savePoem = async () => {
-    const userId = "user_id"; // Replace with the actual user ID logic
-    const poemContent = poemWords.join(" "); // Combine words to form the content
+// Function to save poem
+const savePoem = async () => {
+  const poemContent = droppedWords.join(" "); // Creates a string from the droppedWords array
+  const token = localStorage.getItem('token'); // Retrieve the token from localStorage
 
-    try {
-      const response = await fetch("http://localhost:5001/poems", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId,
-          content: poemContent,
-          shared: true, // Update as per your requirement
-          theme: "Your Theme", // Update with theme option for later
-          mood: "Your Mood", // Update with mood option for later
-        }),
-      });
+  if (!token) {
+    console.error("No token found");
+    return; // Exit the function if no token is available
+  }
 
-      if (response.ok) {
-        console.log("Poem saved successfully");
-        setPoemWords([]); // Reset the poem words after saving
-        navigate("/user-profile"); // Redirect to user profile
-      } else {
-        console.error("Failed to save the poem");
-      }
-    } catch (error) {
-      console.error("Error saving the poem:", error);
+  try {
+    const response = await fetch("http://localhost:5001/poems", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`  // Include the token in the Authorization header
+      },
+      body: JSON.stringify({
+        content: poemContent,
+        shared: true, // Update as per your requirement
+        theme: "Your Theme", // Update with theme option for later
+        mood: "Your Mood", // Update with mood option for later
+      }),
+    });
+
+    if (response.ok) {
+      console.log("Poem saved successfully");
+      setDroppedWords([]); // Reset the dropped words after saving
+      navigate("/user-profile"); // Redirect to user profile
+    } else {
+      const errorData = await response.json();
+      console.error("Failed to save the poem:", errorData.message);
     }
-  };
+  } catch (error) {
+    console.error("Error saving the poem:", error);
+  }
+};
 
   console.log("Current poem words:", poemWords.join(', '));
 
@@ -112,7 +121,7 @@ const RandomWords = ({ includeDetails }) => {
           ))}
         </div>
         <PoemDropZone onDrop={handleDrop}>
-          {poemWords.map((word, index) => (
+        {droppedWords.map((word, index) => (
             <div key={index} className="dropped-word">{word}</div>
           ))}
         </PoemDropZone>

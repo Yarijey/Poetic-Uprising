@@ -1,10 +1,12 @@
-// components/LoginForm.js
+// LoginForm.js
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 
-const LoginForm = ({ onAuthenticationSuccess }) => {
+const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // Initialize navigate for redirection
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,23 +19,23 @@ const LoginForm = ({ onAuthenticationSuccess }) => {
         body: JSON.stringify({ email, password }),
       });
 
-         // Check if the response is OK
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
       
       if (data.token) {
         // If a token is returned, login is successful
-        // Call onAuthenticationSuccess and pass the token
-        onAuthenticationSuccess(data.token);
+        localStorage.setItem('token', data.token); // Store the token in local storage
+        navigate('/random-words'); // Redirect to the user profile page or wherever you wish
       } else {
-        // Handle errors 
+        // If no token is returned, handle login failure
         alert('Login failed');
       }
     } catch (error) {
       console.error('Error logging in:', error);
-      alert('Login failed'+ error.message);
+      alert('Login failed: ' + error.message);
     }
   };
 

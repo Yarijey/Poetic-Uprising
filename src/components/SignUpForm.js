@@ -1,6 +1,7 @@
 /* src/components/SignupForm.js */
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SignupForm.css'; // Make sure to create this CSS file
 
 const SignupForm = ({ onSignUp }) => {
@@ -16,6 +17,8 @@ const SignupForm = ({ onSignUp }) => {
     termsAccepted: false,
   });
 
+  const navigate = useNavigate(); // Initialize navigate hook
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prevFormData) => ({
@@ -24,9 +27,10 @@ const SignupForm = ({ onSignUp }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('onSignUp prop:', onSignUp);
+
+    // Validation checks
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords don't match");
       return;
@@ -35,12 +39,28 @@ const SignupForm = ({ onSignUp }) => {
       alert("You must agree to the terms and services");
       return;
     }
-    // Call the onSignUp callback with formData
-    // Check if onSignUp is a function before calling it
-    if (typeof onSignUp === 'function') {
-      onSignUp(formData);
-    } else {
-      console.error('onSignUp is not a function');
+
+    // Sign-up logic
+    try {
+      const response = await fetch('http://localhost:5001/users/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem('token', data.token); // Store the token
+        navigate('/random-words'); // Redirect to user profile
+      } else {
+        alert(`Signup failed: ${data.message}`);
+      }
+    } catch (error) {
+      console.error('Signup failed:', error);
+      alert(`Signup failed: ${error.message}`);
     }
   };
 
