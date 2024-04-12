@@ -1,3 +1,5 @@
+// server/ models/ poem.js
+
 const mongoose = require('mongoose');
 
 // Define the schema for the poems
@@ -19,6 +21,12 @@ const poemSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  
+  liked: {
+    type: Boolean,
+    default: false
+  },
+  
   shared: {
     type: Boolean,
     default: false
@@ -46,7 +54,7 @@ poemSchema.pre('save', function (next) {
 
 // Middleware to update word count before saving
 poemSchema.pre('save', function(next) {
-  // Assume content is a string of words separated by spaces
+  //a string of words separated by spaces
   this.wordCount = this.content.split(/\s+/).length;
   next();
 });
