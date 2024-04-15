@@ -38,13 +38,15 @@ const RandomWords = ({ includeDetails }) => {
 
   // Function to shuffle words
   const shuffleWords = () => {
-    let array = words.map(word => ({ ...word })); // Clone objects to break references
+    console.log("Before shuffle:", words); // Log the array before shuffling
+    let array = words.slice(); // Creates a shallow copy of the words array
     for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
     }
-    setWords(array);
-  };
+    console.log("After shuffle:", array); // Log the array after shuffling
+    setWords(array); // Update the state with the shuffled words
+};
 
   // Function to handle drop
   const handleDrop = (item) => {

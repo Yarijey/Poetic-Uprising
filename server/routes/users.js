@@ -74,4 +74,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// endpoint for username and email 
+
 module.exports = router;

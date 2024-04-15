@@ -8,7 +8,8 @@ import GlobalStyle from './globalStyle';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import UserProfile from './components/UserProfile';
-
+import UrlSharedPoem from './components/UrlSharedPoem'; // individual shared poem page
+import UserSharedPoems from './components/UserSharedPoems'; // for user-specific shared poems page
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Tracks whether user is logged in
@@ -29,6 +30,8 @@ const App = () => {
         <Route path="/signup" element={<SignupForm onAuthenticationSuccess={handleAuthenticationSuccess} />} />
         <Route path="/random-words" element={<RandomWords includeDetails={false} />} />
         <Route path="/user-profile" element={<UserProfile />} />
+        <Route path="/user-shared-poems" element={<UserSharedPoems />} />
+        <Route path="/public-poems/:poemId" element={<UrlSharedPoem />} />
       </Routes>
     </>
   );

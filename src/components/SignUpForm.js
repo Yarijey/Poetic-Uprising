@@ -66,7 +66,7 @@ const SignupForm = ({ onSignUp }) => {
 
   return (
     <form onSubmit={handleSubmit} className="signup-form">
-      {/* Fields based on the mockup */}
+      {/* Fields based on mockup */}
       <input name="firstName" value={formData.firstName} onChange={handleChange} placeholder="Chosen First Name" required />
       <input name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Chosen Last Name" required />
       <input name="email" value={formData.email} onChange={handleChange} type="email" placeholder="Email Address" required />
