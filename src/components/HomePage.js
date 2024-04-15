@@ -2,9 +2,11 @@
 
 import React, { useState } from 'react';
 import './HomePage.css'; // CSS file HomePage component
+GlobalStyle
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import NavBar from './NavBar';
+import GlobalStyle from '../globalStyle';
 
 
 const HomePage = ({ onAuthenticationSuccess }) => {

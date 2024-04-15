@@ -2,7 +2,10 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+GlobalStyle
 import './LoginForm.css'
+import GlobalStyle from '../globalStyle';
+import NavBar from './NavBar';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -75,7 +78,7 @@ const LoginForm = () => {
           </div>
           <a href="/forgot-password" className="forgot-password">Forgot password</a>
         </div>
-        <button type="submit" className="login-button">Log In</button>
+        <button type="submit" className="login2-button">Log In</button>
       </form>
     </div>
   </div>

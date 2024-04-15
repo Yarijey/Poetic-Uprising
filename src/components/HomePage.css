@@ -16,10 +16,10 @@
   margin: 25px;
   border: none;
   border-radius: 25px;
-  font-size: 1.2rem; /* Adjust the font-size as needed */
+  font-size: 1.2rem; /* Adjust the font-size  */
   cursor: pointer;
   background-color: #110E0B;
-  color: #ffffff; /* Timberwolf */
+  color: #ffffff; /* white  */
   transition: background-color 0.3s, color 0.3s; /* transition for hover effect */
 }
 

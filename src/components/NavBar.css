@@ -8,7 +8,7 @@ body {
   padding: 0;
   margin-bottom: 20px;
   display: flex;
-  justify-content: space-around; /* or 'space-between' */
+  justify-content: space-around; /* or space-between peut-etre */
 }
 
 .nav-list li {
@@ -20,7 +20,6 @@ body {
   text-decoration: none;
   color: #110E0B;
   font-family: 'DM Mono', monospace;
-  font-weight: lighter; /* 'lighter' may work */
   font-size: 1.1rem;
 }
 

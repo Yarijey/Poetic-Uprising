@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignupForm.css'; // Make sure to create this CSS file
+import NavBar from './NavBar';
 
 const SignupForm = ({ onSignUp }) => {
   // Define state for each input field
@@ -65,21 +66,82 @@ const SignupForm = ({ onSignUp }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="signup-form">
-      {/* Fields based on mockup */}
-      <input name="firstName" value={formData.firstName} onChange={handleChange} placeholder="Chosen First Name" required />
-      <input name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Chosen Last Name" required />
-      <input name="email" value={formData.email} onChange={handleChange} type="email" placeholder="Email Address" required />
-      <input name="birthday" value={formData.birthday} onChange={handleChange} type="date" placeholder="Birthday" required />
-      <input name="username" value={formData.username} onChange={handleChange} placeholder="Username" required />
-      <input name="password" value={formData.password} onChange={handleChange} type="password" placeholder="Password" required />
-      <input name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} type="password" placeholder="Confirm Password" required />
-      <label>
-        <input name="termsAccepted" type="checkbox" checked={formData.termsAccepted} onChange={handleChange} />
-        I agree to terms and services
-      </label>
-      <button type="submit" className="signup-button">CONTINUE</button>
-    </form>
+<form onSubmit={handleSubmit} className="signup-form">
+  {/* Fields based on the creative mockup */}
+  <input 
+    className="signup-input"
+    name="firstName" 
+    value={formData.firstName} 
+    onChange={handleChange} 
+    placeholder="Chosen First Name" 
+    required 
+  />
+  <input 
+    className="signup-input"
+    name="lastName" 
+    value={formData.lastName} 
+    onChange={handleChange} 
+    placeholder="Chosen Last Name" 
+    required 
+  />
+  <input 
+    className="signup-input"
+    name="email" 
+    value={formData.email} 
+    onChange={handleChange} 
+    type="email" 
+    placeholder="Email Address" 
+    required 
+  />
+  <input 
+    className="signup-input"
+    name="birthday" 
+    value={formData.birthday} 
+    onChange={handleChange} 
+    type="date" 
+    placeholder="Birthday" 
+    required 
+  />
+  <input 
+    className="signup-input"
+    name="username" 
+    value={formData.username} 
+    onChange={handleChange} 
+    placeholder="Username" 
+    required 
+  />
+  <input 
+    className="signup-input"
+    name="password" 
+    value={formData.password} 
+    onChange={handleChange} 
+    type="password" 
+    placeholder="Password" 
+    required 
+  />
+  <input 
+    className="signup-input"
+    name="confirmPassword" 
+    value={formData.confirmPassword} 
+    onChange={handleChange} 
+    type="password" 
+    placeholder="Confirm Password" 
+    required 
+  />
+  <div className="terms-container">
+    <input 
+      className="terms-checkbox"
+      name="termsAccepted" 
+      type="checkbox" 
+      checked={formData.termsAccepted} 
+      onChange={handleChange} 
+    />
+    <label htmlFor="termsAccepted" className="terms-label">
+      I agree to terms and services
+    </label>
+  </div>
+  <button type="submit" className="signup-button">CONTINUE</button>
+</form>
   );
 };
 

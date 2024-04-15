@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* This will take the full height of the viewport */
+  height: 100vh; /* full height of the viewport */
 }
 
 .login-form {
@@ -67,7 +67,9 @@ p {
   color: #0000EE; /* Standard link color */
 }
 
-.login-button {
+.login2-button {
+  align-items: center;
+  display: flex;
   padding: 15px 30px;
   margin: 25px;
   border: none;

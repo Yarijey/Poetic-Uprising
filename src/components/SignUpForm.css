@@ -6,20 +6,77 @@
   align-items: center;
   justify-content: center;
   margin-top: 50px; /* Adjust as needed */
+  width: 100%; /* Full width */
+  max-width: 500px; /* Maximum width */
+  margin: 0 auto; /* Center in the middle of the screen */
+  padding: 20px;
 }
 
 .signup-input {
   margin-bottom: 20px; /* Space between inputs */
   padding: 10px;
-  border: 1px solid #ddd; /* Light grey border */
-  border-radius: 5px;
+  border: 1px solid #000; /* Black border as in the mockup */
+  border-radius: 0; /* No border-radius for a square look */
+  width: 100%; /* Full width of the parent container */
+  box-sizing: border-box; /* Include padding in the width */
+  font-family: 'DM Mono', monospace;
+  font-weight: 300; /* Light font-weight as specified */
 }
 
 .signup-button {
-  padding: 10px 20px;
+  padding: 15px 30px;
   border: none;
-  border-radius: 5px;
-  background-color: black;
-  color: white;
+  border-radius: 20px; /* Rounded borders */
+  background-color: #f06bdb; /* Orchid color */
+  color: #ffffff; /* White color for the text */
+  font-size: 1rem;
   cursor: pointer;
+  margin-top: 20px; /* Space from the last input */
+  width: 100%; /* Full width */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Optional: Adds a subtle shadow */
+}
+
+/* Style for the checkbox */
+.signup-form input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Terms and services text */
+.signup-form label {
+  color: #110E0B; /* Dark color for text */
+  font-family: 'DM Mono', monospace;
+  font-weight: 300; /* Light font-weight */
+  display: flex;
+  align-items: center; /* Center the checkbox and label text */
+  margin-bottom: 30px; /* Space before the submit button */
+}
+
+/* Additional styles based on your notes */
+h3 {
+  font-family: 'Sunflower', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem; /* Corrected font-size declaration */
+  color: #110E0B; /* Dark color for text */
+}
+
+.dm-mono-light {
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Placeholder style */
+::placeholder {
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
+  /* You can add more styles for placeholder if needed */
+}
+
+/* Color for the "SIGN UP" */
+h2 {
+  color: #110E0B; /* Dark text color */
+  padding: 10px 0; /* Top and bottom padding */
+  width: 100%; /* Full width to match the mockup */
+  text-align: center;
 }
