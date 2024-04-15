@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import './HomePage.css'; // CSS file HomePage component
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
+import NavBar from './NavBar';
 
 
 const HomePage = ({ onAuthenticationSuccess }) => {
@@ -53,16 +54,17 @@ const HomePage = ({ onAuthenticationSuccess }) => {
     };
 
   return (
+    <>
+    <NavBar> {/* NavBar is now at the top outside the home-container */}
+    <li><a href="/">Welcome</a></li>
+    <li></li>
+    <li><a href="/About">About</a></li>
+  </NavBar>
     <div className="home-container">
       {activeForm === null && (
         <>
-        <p className="dm-mono-regular about-section">
-          Welcome
-        </p>
-        <p className="dm-mono-regular about-section">
-          About
-        </p>
-          <h1 className="sunflower-bold">POETIC UPRISINGS</h1>
+          <h1 className="sunflower-bold">POETIC </h1>
+          <h2 className="sunflower-medium">UPRISINGS</h2>
           <p className="dm-mono-regular about-section">
           A creative space designed to empower and highlight QTBIPOC voices through poetry, this app
 provides tools for crafting, editing, and sharing poetic works. it encourages engagement + exploration of a multitude of 
@@ -81,6 +83,7 @@ narratives and self-expression.
         <SignupForm onSignUp={handleSignUp} />
       )}
     </div>
+    </>
   );
 };
 

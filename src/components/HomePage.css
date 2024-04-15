@@ -3,37 +3,32 @@
 .home-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   background-color: yellow; /*  yellow */
   color: 110E0B; /* Smoky Black */
   font-family: 'Sunflower', sans-serif;
-  padding: 60px 20px; /* Adjust the padding to fit  */
-}
-
-.header-section {
-  text-align: center;
-  margin-bottom: 30px; /* Space between the about section and buttons */
-}
-
-.about-section {
-  margin: 20px 0; /* Spacing around the about section */
+  padding: 70px 70px; /* Adjust the padding to fit  */
 }
 
 .login-button, .join-button {
-  padding: 10px 20px;
-  margin: 10px;
+  justify-content: flex-end;
+  padding: 15px 30px;
+  margin: 25px;
   border: none;
   border-radius: 25px;
   font-size: 1.2rem; /* Adjust the font-size as needed */
   cursor: pointer;
-}
-
-.login-button {
   background-color: #110E0B;
-  color: #dedad8; /* Timberwolf */
+  color: #ffffff; /* Timberwolf */
+  transition: background-color 0.3s, color 0.3s; /* transition for hover effect */
 }
 
-.join-button {
+.about-section {
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+
+.join-button:hover, .login-button:hover {
   background-color: #f06bdb; /* Orchid color */
-  color: #110E0B;
+  color: #110E0B; /* Dark color */
 }

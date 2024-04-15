@@ -76,7 +76,15 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Sunflower', sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size:5rem;
+    font-size:6rem;
+    padding-left: 20px;
+  }
+
+  h2 {
+    font-family: 'Sunflower', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 5rem;
     padding-left: 20px;
   }
 `;

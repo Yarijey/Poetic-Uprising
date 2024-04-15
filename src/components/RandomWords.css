@@ -5,10 +5,15 @@
 }
 
 .random-words-button,
-.shuffle-words-button, /* Added class for the shuffle button */
-.save-poem-button { /* Added class for the save button */
-  margin-top: 10px;
-  margin-bottom: 20px;
+.shuffle-words-button, /* class for the shuffle button */
+.save-poem-button { /*  class for the save button */
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
   cursor: pointer;
   /* You can add more styling here for the buttons */
 }

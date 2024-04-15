@@ -2,6 +2,7 @@
 
 import React, {useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
 import RandomWords from './components/RandomWords';
 import GlobalStyle from './globalStyle';
@@ -24,6 +25,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
+      <NavBar></NavBar>
       <Routes>
         <Route path="/" element={<HomePage onAuthenticationSuccess={handleAuthenticationSuccess} />} />
         <Route path="/login" element={<LoginForm onAuthenticationSuccess={handleAuthenticationSuccess} />} />

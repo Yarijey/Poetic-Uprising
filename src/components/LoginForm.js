@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import './LoginForm.css'
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -40,24 +41,44 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        required
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        required
-      />
-      <button type="submit">Log In</button>
-    </form>
-  );
+    <div className="login-container">
+    <div className="login-form">
+      <h2>Log In</h2>
+      <p>Welcome back, poet!</p>
+      <form onSubmit={handleLogin}>
+        <div className="input-group">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your Email address"
+            required
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="********"
+            required
+          />
+        </div>
+        <div className="form-footer">
+          <div className="remember-me">
+            <input type="checkbox" id="remember-me" />
+            <label htmlFor="remember-me">Remember me</label>
+          </div>
+          <a href="/forgot-password" className="forgot-password">Forgot password</a>
+        </div>
+        <button type="submit" className="login-button">Log In</button>
+      </form>
+    </div>
+  </div>
+);
 };
-
 export default LoginForm;

@@ -1,0 +1,83 @@
+/* src/components/LoginForm.css */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This will take the full height of the viewport */
+}
+
+.login-form {
+  width: 100%;
+  max-width: 320px; /* Adjust the width as needed */
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.login-form h2 {
+  text-align: center;
+}
+p {
+  font-size: 1.2rem;
+}
+ 
+.login-form p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 300px;
+
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+}
+
+.remember-me input {
+  margin-right: 5px;
+}
+
+.forgot-password {
+  text-decoration: none;
+  color: #0000EE; /* Standard link color */
+}
+
+.login-button {
+  padding: 15px 30px;
+  margin: 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2rem; /* Adjust the font-size as needed */
+  cursor: pointer;
+  background-color: #110E0B;
+  color: #ffffff; /* Timberwolf */
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+

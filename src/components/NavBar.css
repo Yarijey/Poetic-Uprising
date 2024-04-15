@@ -1,0 +1,32 @@
+body {
+  background-color: #Ffffff;
+  
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around; /* or 'space-between' */
+}
+
+.nav-list li {
+  margin: 0 10px; /* spacing as needed */
+  margin-left: 40px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #110E0B;
+  font-family: 'DM Mono', monospace;
+  font-weight: lighter; /* 'lighter' may work */
+  font-size: 1.1rem;
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+  text-decoration-color: #110E0B;
+  text-underline-offset: 3pt;
+  text-decoration-thickness: 2pt;
+}
