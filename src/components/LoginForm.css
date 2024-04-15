@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* full height of the viewport */
+  height: 75vh; /* full height of the viewport */
 }
 
 .login-form {
@@ -69,9 +69,9 @@ p {
 
 .login2-button {
   align-items: center;
-  display: flex;
+  width: 100%;
   padding: 15px 30px;
-  margin: 25px;
+  margin-top: 10px;
   border: none;
   border-radius: 25px;
   font-size: 1.2rem; /* Adjust the font-size as needed */

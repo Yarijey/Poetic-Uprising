@@ -16,8 +16,8 @@ const HomePage = ({ onAuthenticationSuccess }) => {
     // Define the function to call after successful authentication (either login or signup)
     const handleAuthenticationSuccess = (token) => {
       console.log("Authenticated successfully with token:", token);
-      // Here, you would typically store the token in local storage or context/state
-      // and redirect the user or update the UI to reflect the authentication state.
+      // store the token in local storage or context/state ?
+      // redirect the user or update the UI to reflect the authentication state ?
       localStorage.setItem('authToken', token);
       // Redirect or update state here.
     };
@@ -57,9 +57,8 @@ const HomePage = ({ onAuthenticationSuccess }) => {
 
   return (
     <>
-    <NavBar> {/* NavBar is now at the top outside the home-container */}
+    <NavBar> {/* NavBar at the top outside the home-container */}
     <li><a href="/">Welcome</a></li>
-    <li></li>
     <li><a href="/About">About</a></li>
   </NavBar>
     <div className="home-container">

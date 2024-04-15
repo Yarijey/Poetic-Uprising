@@ -8,6 +8,7 @@
   color: 110E0B; /* Smoky Black */
   font-family: 'Sunflower', sans-serif;
   padding: 70px 70px; /* Adjust the padding to fit  */
+  height: 100vh;
 }
 
 .login-button, .join-button {

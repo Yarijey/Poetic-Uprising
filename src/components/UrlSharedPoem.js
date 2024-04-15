@@ -14,7 +14,7 @@ const UrlSharedPoem = () => {
         const fetchPoem = async () => {
           console.log(`Fetching poem with ID: ${poemId}`);  // Log before fetching
             try {
-                const response = await fetch(`http://localhost:5001/public-poems/${poemId}`);
+                const response = await fetch(`http://localhost:5001/poems/public-poems/${poemId}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch poem');
                 }

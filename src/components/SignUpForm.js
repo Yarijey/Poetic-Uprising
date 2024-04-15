@@ -67,7 +67,7 @@ const SignupForm = ({ onSignUp }) => {
 
   return (
 <form onSubmit={handleSubmit} className="signup-form">
-  {/* Fields based on the creative mockup */}
+ <h2>SIGN UP</h2>
   <input 
     className="signup-input"
     name="firstName" 

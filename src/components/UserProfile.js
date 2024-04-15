@@ -42,7 +42,7 @@ const UserProfile = () => {
     // Function to share a poem and navigate to the public page
     const handleShare = async (poemId) => {
       try {
-        const response = await fetch(`http://localhost:5001/poems/${poemId}/share`, {
+        const response = await fetch(`http://localhost:5001/poems/poems/${poemId}/share`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

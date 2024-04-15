@@ -39,11 +39,12 @@ const RandomWords = ({ includeDetails }) => {
   // Function to shuffle words
   const shuffleWords = () => {
     console.log("Before shuffle:", words); // Log the array before shuffling
-    let array = words.slice(); // Creates a shallow copy of the words array
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-    }
+    const array = [...words.sort((a, b) => 0.5 - Math.random())];
+   // let array = words.slice(); // Creates a shallow copy of the words array
+    //for (let i = array.length - 1; i > 0; i--) {
+        //const j = Math.floor(Math.random() * (i + 1));
+       // [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+   // }
     console.log("After shuffle:", array); // Log the array after shuffling
     setWords(array); // Update the state with the shuffled words
 };
@@ -108,7 +109,7 @@ const savePoem = async () => {
         <button className="random-words-button" onClick={fetchRandomWords}>
           Get Random Words
         </button>
-        {showShuffle && (
+       {false && (
           <button className="shuffle-words-button" onClick={shuffleWords}>
             Shuffle Words
           </button>

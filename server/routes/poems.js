@@ -19,6 +19,23 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
+// Endpoint to fetch a publicly shared poem by ID
+router.get('/public-poems/:id', async (req, res) => {
+  console.log("Requested poem ID:", req.params.id);  // Log the requested poem ID
+  try {
+    const poem = await Poem.findOne({ _id: req.params.id, shared: true });
+    if (!poem) {
+      console.log("Poem not found or not shared"); // Log if the poem is not found or not shared
+      return res.status(404).json({ message: 'Poem not found or not shared' });
+    }
+    console.log("Fetched poem:", poem);  // Log the fetched poem
+    res.json(poem);
+  } catch (error) {
+    console.error("Error fetching poem:", error);
+    res.status(500).json({ message: "Failed to fetch the poem", error: error.message });
+  }
+});
+
 // Endpoint to create a new poem
 router.post('/', authenticateToken, async (req, res) => {
   const { content, shared, theme, mood } = req.body;
@@ -106,22 +123,7 @@ router.delete('/:id', authenticateToken, async (req, res) => {
 });
 
 
-// Endpoint to fetch a publicly shared poem by ID
-router.get('/public-poems/:id', async (req, res) => {
-  console.log("Requested poem ID:", req.params.id);  // Log the requested poem ID
-  try {
-    const poem = await Poem.findOne({ _id: req.params.id, shared: true });
-    if (!poem) {
-      console.log("Poem not found or not shared"); // Log if the poem is not found or not shared
-      return res.status(404).json({ message: 'Poem not found or not shared' });
-    }
-    console.log("Fetched poem:", poem);  // Log the fetched poem
-    res.json(poem);
-  } catch (error) {
-    console.error("Error fetching poem:", error);
-    res.status(500).json({ message: "Failed to fetch the poem", error: error.message });
-  }
-});
+
 
 
 

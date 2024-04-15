@@ -78,6 +78,7 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-size:6rem;
     padding-left: 20px;
+    line-height: 0;
   }
 
   h2 {
@@ -86,6 +87,7 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-size: 5rem;
     padding-left: 20px;
+    line-height: 0;
   }
 
   h3 {
