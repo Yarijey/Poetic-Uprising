@@ -6,25 +6,26 @@ const morgan = require('morgan');
 
 const app = express();
 
-const corsOptions = {
-  origin: 'http://localhost:3000', // Adjust if  frontend is hosted elsewhere
-};
+  const corsOptions = {
+    origin: 'http://localhost:3000', // This should match the URL of your frontend
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  };
 
-app.use(cors(corsOptions)); // Enable CORS with the options
-
+// Routers
 const userRoutes = require('./routes/users');
 const poemRoutes = require('./routes/poems');
 const wordRoutes = require('./routes/words');
 
 // Middleware
 app.use(cors(corsOptions)); // Enable CORS with the options
-app.use(express.json());
-app.use(morgan('combined')); // Use 'combined' format for morgan
+app.use(express.json()); // Parse JSON payloads
+app.use(morgan('combined')); // Use 'combined' format for HTTP logging
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
+
 
 app.use('/users', userRoutes);
 app.use('/poems', poemRoutes);

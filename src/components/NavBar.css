@@ -1,19 +1,20 @@
 body {
   background-color: #Ffffff;
-  
 }
 
 .nav-list {
   list-style: none;
   padding: 0;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
-  justify-content: space-around; /* or space-between peut-etre */
+  justify-content:space-evenly /* or space-between peut-etre */
 }
 
 .nav-list li {
-  margin: 0 10px; /* spacing as needed */
-  margin-left: 40px;
+  margin: 0 5px; /* spacing as needed */
+  margin-left: 5vh;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .nav-list a {

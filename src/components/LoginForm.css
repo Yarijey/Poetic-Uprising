@@ -82,4 +82,10 @@ p {
   cursor: pointer;
 }
 
+.login2-button:hover{
+  background-color: #f06bdb; /* Orchid color */
+  color: #110E0B; /* Dark color */
+}
+
+
 

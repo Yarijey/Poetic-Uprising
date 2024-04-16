@@ -9,6 +9,7 @@ import notlikedIcon from "../assets/notliked.png";
 import sharedIcon from "../assets/shared.png";
 import notsharedIcon from "../assets/notshared.png";
 import deleteIcon from "../assets/delete.png";
+import NavBar from "./NavBar";
 
 const UserProfile = () => {
   const [poems, setPoems] = useState([]); // hold the poems fetched from the backend
@@ -39,31 +40,33 @@ const UserProfile = () => {
   };
 
 
-    // Function to share a poem and navigate to the public page
-    const handleShare = async (poemId) => {
-      try {
-        const response = await fetch(`http://localhost:5001/poems/poems/${poemId}/share`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        });
-  
-        if (!response.ok) {
-          throw new Error("Failed to toggle share status");
-        }
-  
-        const data = await response.json();
-        setPoems(poems.map((poem) => (poem._id === poemId ? {...poem, shared: !poem.shared} : poem)));
-        console.log('URL received from backend:', data.url);
-       
+// Function to share a poem and navigate to the public page
+const handleShare = async (poemId) => {
+  try {
+    const response = await fetch(`http://localhost:5001/poems/${poemId}/share`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to toggle share status");
+    }
+
+    const data = await response.json();
+    setPoems(poems.map((poem) => (poem._id === poemId ? {...poem, shared: !poem.shared} : poem)));
+    console.log('URL received from backend:', data.url);
     console.log('Navigating to path:', data.url);
-    navigate(data.url); // Use the path for navigation
-      } catch (error) {
-        console.error("Error toggling share:", error);
-      }
-    };
+
+    // Since URL is a relative path, use React Router to navigate
+    navigate(data.url);
+    
+  } catch (error) {
+    console.error("Error toggling share:", error);
+  }
+};
 
     const handleDelete = async (poemId) => {
       try {
@@ -113,11 +116,17 @@ const UserProfile = () => {
   }
 
   return (
+    <>
+    <NavBar> 
+    <li><a href="/">Welcome</a></li>
+    <li><a href="/random-words"> Create Poems</a></li>
+    <li><a href="/About">Logout</a></li>
+  </NavBar>
     <div className="user-profile">
       <div className="navigation">{/* Navigation component or links here */}</div>
       <div className="user-info">{/* User information display */}</div>
       <div className="poems-section">
-        <h3>My Poems</h3>
+        <h2 className="user-profile-texth2">My Poems</h2>
         {poems.map((poem) => (
           <div key={poem._id} className="poem">
             <p>{poem.content}</p>
@@ -130,7 +139,7 @@ const UserProfile = () => {
         ))}
       </div>
     </div>
-  );
-};
+  </>
+)};
 
 export default UserProfile;

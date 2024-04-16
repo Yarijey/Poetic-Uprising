@@ -57,7 +57,7 @@ const HomePage = ({ onAuthenticationSuccess }) => {
 
   return (
     <>
-    <NavBar> {/* NavBar at the top outside the home-container */}
+    <NavBar>
     <li><a href="/">Welcome</a></li>
     <li><a href="/About">About</a></li>
   </NavBar>

@@ -1,21 +1,37 @@
 /* src/components/RandomWords.css */
+
 .random-words-container {
-  padding: 30px;
+  display: flex; 
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center;
+  padding: 5vh 5vh; /* Vertical padding */
   text-align: justify;
+  align-items: center;
+  height: 100%;
+  background-color: yellow;
 }
 
 .random-words-button,
-.shuffle-words-button, /* class for the shuffle button */
-.save-poem-button { /*  class for the save button */
+.save-poem-button { 
+  align-items: center;
   margin-top: 20px;
   margin-bottom: 30px;
   margin: 10px;
-  padding: 10px;
+  padding: 15px;
   border: none;
+  background-color: #110E0B;
+  color: #ffffff; /* white  */
+  transition: background-color 0.3s, color 0.3s; /* transition for hover effect */
   border-radius: 25px;
   font-size: 1.2rem;
   cursor: pointer;
   /* You can add more styling here for the buttons */
+}
+
+.random-words-button:hover,
+.save-poem-button:hover { 
+background-color: #f06bdb; /* Orchid color */
+color: #110E0B; /* Dark color */
 }
 
 .words-container {
@@ -23,11 +39,13 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px; /* Adjust the space between word boxes */
-  margin-bottom: 20px; /* Space between the words and the next content */
+  margin-bottom: 70px; /* Space between the words and the next content */
+  margin-top: 20px;
 }
 
 .word-box {
-  border: 1px solid #110E0B;
+  border: 0.5pt solid #110E0B;
+  background-color: #ffffff;
   padding: 5px 10px;
   font-family: "DM Mono", monospace;
   font-weight: 400;
@@ -38,20 +56,64 @@
 }
 
 .poem-drop-zone {
-  min-height: 100px;
-  border: 1px dashed #aaa;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f8f8f8; /* Optional: a light background color can make the drop zone more visible */
+    width: 100%; /* Full width relative to its parent */
+    margin: 10px 5px 10px 5px;
+    padding: 0;
+    min-height: 25vh; /* Minimum height relative to the viewport height */
+    flex-wrap: wrap; /* Allows content to wrap onto next line */
+    border: none;
+    border-radius: 20px;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Start aligning items from the top */
+    background-color: #F6F5F4;
+    overflow: hidden; /* Hide overflow */
+}
+
+.drop-zone-text{
+font-family: sunflower;
+font-weight: 300;
+margin-top: 50px;
+font-size: 2em;
+text-align: center;
+margin:0;
 }
 
 .dropped-word {
   display: inline-block; /* Adjust display as needed */
-  margin: 5px;
-  padding: 3px;
-  border: 1px solid #110E0B; /* Just an example, style as needed */
+  flex: 0 1 auto; /* Grow and shrink but respect content size */
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color:#ffffff;
+  background-color: black;
+  margin: 10px 5px 10px 5px;
+  padding: 5px 10px 5px 10px;
+  border: 1px solid #110E0B; /* style as needed */
+  border-radius: 5px;
 }
 
 /* Add media query styles here */
+
+/* Adjust width on larger screens for better layout */
+@media (min-width: 1024px) {
+  .poem-drop-zone {
+    width: 80%; /* Reduce width to 80% for larger screens */
+    margin: 0 auto; /* Center it horizontally */
+  }
+}
+
+/* Adjust for medium screens */
+@media (max-width: 768px) {
+  .poem-drop-zone {
+    width: 90%; /* Use 90% of the screen width on medium screens */
+  }
+}
+
+/* Mobile devices use full width */
+@media (max-width: 480px) {
+  .poem-drop-zone {
+    width: 100%; /* Full width on small screens */
+  }
+}

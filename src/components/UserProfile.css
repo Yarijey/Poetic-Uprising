@@ -4,7 +4,16 @@
   font-family: 'DM Mono', monospace;
   color: #110E0B;
   background-color: #f06bdb;
-  padding: 20px; /* Add padding around the entire profile for better spacing */
+  padding: 5vh 5vh;
+  max-height: 100%;
+}
+
+.user-profile-texth2
+{
+  font-family: 'Sunflower', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-align: justify;
 }
 
 .navigation {

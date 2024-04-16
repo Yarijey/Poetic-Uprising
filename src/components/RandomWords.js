@@ -7,6 +7,7 @@ import PoemDropZone from "./PoemDropZone";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { useNavigate } from "react-router-dom";
+import NavBar from './NavBar';
 
 const RandomWords = ({ includeDetails }) => {
   const [words, setWords] = useState([]);
@@ -105,6 +106,11 @@ const savePoem = async () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
+         <NavBar> 
+    <li><a href="/">Welcome</a></li>
+    <li><a href="/user-profile"> Saved Poems</a></li>
+    <li><a href="/About">About</a></li>
+  </NavBar>
       <div className="random-words-container">
         <button className="random-words-button" onClick={fetchRandomWords}>
           Get Random Words

@@ -10,10 +10,12 @@ const PoemDropZone = ({ onDrop, children }) => {
   });
 
   return (
-    <div ref={drop} className="poem-drop-zone">
-      {children}
-      Drop words here to create a poem.
-    </div>
+    <>
+      <p className="drop-zone-text">DROP WORDS HERE TO CREATE A POEM</p>
+      <div ref={drop} className="poem-drop-zone">
+        {children}
+      </div>
+    </>
   );
 };
 

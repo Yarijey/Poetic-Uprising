@@ -21,7 +21,7 @@ const authenticateToken = (req, res, next) => {
 
 // Endpoint to fetch a publicly shared poem by ID
 router.get('/public-poems/:id', async (req, res) => {
-  console.log("Requested poem ID:", req.params.id);  // Log the requested poem ID
+  console.log("Hit the route for poem ID:", req.params.id);  // Log the requested poem ID
   try {
     const poem = await Poem.findOne({ _id: req.params.id, shared: true });
     if (!poem) {
@@ -84,6 +84,7 @@ router.post('/:id/like', authenticateToken, async (req, res) => {
 
 // Endpoint to toggle share status of a poem and provide a URL for the shared poem
 router.post('/:id/share', authenticateToken, async (req, res) => {
+  console.log("Hit the route for poem ID:", req.params.id); 
   try {
     const poem = await Poem.findById(req.params.id);
     if (!poem) {
@@ -93,10 +94,11 @@ router.post('/:id/share', authenticateToken, async (req, res) => {
     await poem.save();
 
      // Log the protocol and host for debugging
+     console.log('Updated poem:', poem); // Log the updated poem
      console.log('Protocol:', req.protocol);
      console.log('Host:', req.get('host'));
 
-     const poemUrl = `${req.protocol}://${req.get('host')}/public-poems/${poem._id}`;
+     const poemUrl = `${req.protocol}://${req.get('host')}/poems/public-poems/${poem._id}`
      console.log('Generated poem URL:', poemUrl); // Log the URL for debugging
 
    // Respond with the path to the shared poem page, not the full URL
@@ -121,9 +123,6 @@ router.delete('/:id', authenticateToken, async (req, res) => {
     res.status(500).json({ message: "Failed to delete poem", error: error.message });
   }
 });
-
-
-
 
 
 
