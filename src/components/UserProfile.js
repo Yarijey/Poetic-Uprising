@@ -127,6 +127,7 @@ const handleShare = async (poemId) => {
     <NavBar> 
     <li><a href="/">Welcome</a></li>
     <li><a href="/random-words"> Create Poems</a></li>
+    <li><a href="/user-shared-poems"> Shared Poems</a></li>
     <li><a href="/" onClick={(e) => {
     e.preventDefault(); // Prevent the default link behavior
     handleLogout(); // Call the logout function

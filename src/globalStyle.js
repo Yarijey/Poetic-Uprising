@@ -78,7 +78,6 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-size:6rem;
     padding-left: 20px;
-    line-height: 0;
   }
 
   h2 {
@@ -87,7 +86,6 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-size: 5rem;
     padding-left: 20px;
-    line-height: 0;
   }
 
   h3 {
@@ -97,6 +95,50 @@ const GlobalStyle = createGlobalStyle`
     font-size: 2 rem;
     padding-left: 20px;
   }
+
+/* Tablet (devices with width between 768px and 1024px) */
+@media (max-width: 1024px) {
+  body {
+    font-size: 16px; /* adjust font size for tablets */
+  }
+
+  h1 {
+    font-size: 4.5rem; /* Smaller heading size for better readability on tablets */
+  }
+
+  h2 {
+    font-size: 3.5rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Phone (devices with width less than 768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* Even smaller font size for phones */
+  }
+
+  h1 {
+    font-size: 3rem; /* Much smaller heading size for phone screens */
+    padding-left: 10px; /* Adjust padding for smaller screen */
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    padding-left: 10px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    padding-left: 10px;
+  }
+}
+
+
+
 `;
 
 

@@ -35,7 +35,7 @@ const UrlSharedPoem = () => {
 
     return (
         <div>
-            <h1>Shared Poem</h1>
+            <h1>This Poem is shared to you with love and uprising</h1>
             <p>{poem.content}</p>
         </div>
     );
