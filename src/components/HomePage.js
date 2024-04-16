@@ -7,6 +7,7 @@ import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import NavBar from './NavBar';
 import GlobalStyle from '../globalStyle';
+import Modal from './Modal';
 
 
 const HomePage = ({ onAuthenticationSuccess }) => {
@@ -28,6 +29,16 @@ const HomePage = ({ onAuthenticationSuccess }) => {
 
   const handleJoinClick = () => {
     setActiveForm("signup");
+  };
+
+  const [isAboutOpen, setAboutOpen] = useState(false);
+
+  const handleOpenAbout = () => {
+    setAboutOpen(true);
+  };
+
+  const handleCloseAbout = () => {
+    setAboutOpen(false);
   };
 
     // Function to handle signup submission
@@ -59,8 +70,16 @@ const HomePage = ({ onAuthenticationSuccess }) => {
     <>
     <NavBar>
     <li><a href="/">Welcome</a></li>
-    <li><a href="/About">About</a></li>
+    <li><a href="/" onClick={(e) => {
+       e.preventDefault(); // Prevent the default link behavior
+       handleOpenAbout(); // Call the logout function
+      }} style={{ cursor: 'pointer' }}>
+      About</a></li>
   </NavBar>
+  <Modal isOpen={isAboutOpen} onClose={handleCloseAbout}>
+        <h3>Poetic Uprisings</h3>
+        <p>is designed to help users create and share their poetry. It includes features like...</p>
+      </Modal>
     <div className="home-container">
       {activeForm === null && (
         <>
