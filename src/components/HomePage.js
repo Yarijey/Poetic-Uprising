@@ -87,7 +87,7 @@ const HomePage = ({ onAuthenticationSuccess }) => {
           <h2 className="sunflower-medium">UPRISINGS</h2>
           <p className="dm-mono-regular about-section">
           A creative space designed to empower and highlight QTBIPOC voices through poetry, this app
-provides tools for crafting, editing, and sharing poetic works. it encourages engagement + exploration of a multitude of 
+provides tools for crafting, editing, and sharing poetic works. It encourages engagement + exploration of a multitude of 
 narratives and self-expression.
           </p>
           <div className="button-section">

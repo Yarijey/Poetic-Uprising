@@ -40,7 +40,7 @@ const App = () => {
         <Route path="/random-words" element={<RandomWords includeDetails={false} />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/user-shared-poems" element={<UserSharedPoems />} />
-        <Route path="/poems/public-poems/:poemId" element={<UrlSharedPoem />} />
+        <Route path="/public-poems/:poemId" element={<UrlSharedPoem />} />
       </Routes>
     </>
   );
