@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import "./UrlSharedPoem.css";
 
 const UrlSharedPoem = () => {
     const { poemId } = useParams();
@@ -34,8 +35,8 @@ const UrlSharedPoem = () => {
     if (!poem) return <p>Poem not found.</p>;
 
     return (
-        <div>
-            <h1>This Poem is shared to you with love and uprising</h1>
+        <div className="url-shared-poems">
+            <h1>This Poem is shared to you with 🖤 and 💅🏽</h1>
             <p>{poem.content}</p>
         </div>
     );

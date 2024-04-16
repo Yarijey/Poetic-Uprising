@@ -1,0 +1,42 @@
+.user-shared-poems {
+  font-family: 'DM Mono', monospace;
+  color: #110E0B;
+  background-color: #F8B5EE; /* A light purple to differentiate from UserProfile */
+  padding: 5vh 5vh;
+  max-height: 100%;
+}
+
+.shared-poem-header {
+  font-family: 'Sunflower', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.poem-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px; /* Rounded corners for each poem */
+}
+
+.poem-content {
+  font-size: 1rem;
+  text-align: justify;
+  margin-bottom: 10px; /* Space between the poem content and the link */
+}
+
+.poem-link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #5a4fcf; /* A deeper purple for links for better contrast */
+  font-weight: bold;
+}
+
+.loading-text {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #888; /* Grey color for loading text */
+}

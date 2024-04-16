@@ -1,0 +1,7 @@
+.url-shared-poems {
+  font-family: 'DM Mono', monospace;
+  color: #110E0B;
+  background-color: yellow; /* A light purple to differentiate from UserProfile */
+  padding: 5vh 5vh;
+  min-height: 100vh;
+}

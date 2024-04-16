@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./UserSharedPoems.css";
+import NavBar from "./NavBar";
 
 const UserSharedPoems = () => {
   const [poems, setPoems] = useState([]);
@@ -34,16 +36,29 @@ const UserSharedPoems = () => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div>
-      <h1>My Shared Poems</h1>
+    <>
+    <NavBar> 
+    <li><a href="/">Welcome</a></li>
+    <li><a href="/random-words"> Create Poems</a></li>
+    <li><a href="/user-profile"> Saved Poems</a></li>
+    <li><a href="/" onClick={(e) => {
+    e.preventDefault(); // Prevent the default link behavior
+    handleLogout(); // Call the logout function
+  }} style={{ cursor: 'pointer' }}>
+    Logout
+  </a>
+  </li>
+  </NavBar>
+    <div className="user-shared-poems">
+      <h1 className="shared-poem-header">My Shared Poems</h1>
       {poems.map((poem) => (
-        <div key={poem._id}>
-          <p>{poem.content}</p>
-          <Link to={`/public-poems/${poem._id}`}>View Public Link</Link>
-        </div>
+         <div key={poem._id} className="poem-container">
+          <p className="poem-content">{poem.content}</p>
+          <Link to={`/public-poems/${poem._id}`} className="poem-link">View Public Link</Link>
+          </div>
       ))}
     </div>
-  );
-};
+  </>
+)};
 
 export default UserSharedPoems;
