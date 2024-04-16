@@ -1,7 +1,8 @@
 // src/components/NavBar.js
 
 import React from 'react';
-import './NavBar.css'; // This is where you'd import your CSS from
+import './NavBar.css';
+import Modal from './Modal';
 
 const NavBar = ({ children }) => {
   return (

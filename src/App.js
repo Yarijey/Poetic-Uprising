@@ -23,10 +23,16 @@ const App = () => {
     setIsLoggedIn(true); // Update state to reflect user is logged in
   };
 
+  // function to logout user
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+    navigate('/login'); // Redirect to the login page after logout
+  };
+
   return (
     <>
       <GlobalStyle />
-      <NavBar></NavBar>
       <Routes>
         <Route path="/" element={<HomePage onAuthenticationSuccess={handleAuthenticationSuccess} />} />
         <Route path="/login" element={<LoginForm onAuthenticationSuccess={handleAuthenticationSuccess} />} />

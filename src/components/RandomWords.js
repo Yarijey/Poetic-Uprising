@@ -37,6 +37,12 @@ const RandomWords = ({ includeDetails }) => {
     }
   };
 
+      // Logout function
+      const handleLogout = () => {
+        localStorage.removeItem("token");  // Remove the token from local storage
+        navigate('/');  // Navigate to the login page
+      };
+
   // Function to shuffle words
   const shuffleWords = () => {
     console.log("Before shuffle:", words); // Log the array before shuffling
@@ -109,7 +115,11 @@ const savePoem = async () => {
          <NavBar> 
     <li><a href="/">Welcome</a></li>
     <li><a href="/user-profile"> Saved Poems</a></li>
-    <li><a href="/About">About</a></li>
+    <li><a href="/" onClick={(e) => {
+    e.preventDefault(); // Prevent the default link behavior
+    handleLogout(); // Call the logout function
+  }} style={{ cursor: 'pointer' }}>
+    Logout</a></li>
   </NavBar>
       <div className="random-words-container">
         <button className="random-words-button" onClick={fetchRandomWords}>

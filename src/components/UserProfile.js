@@ -17,6 +17,13 @@ const UserProfile = () => {
   const token = localStorage.getItem("token"); // token from local storage
   const navigate = useNavigate(); // Hook for navigation
 
+
+    // Logout function
+    const handleLogout = () => {
+      localStorage.removeItem("token");  // Remove the token from local storage
+      navigate('/');  // Navigate to the login page
+    };
+
   // Function like poem
   const handleLike = async (poemId) => {
     try {
@@ -120,7 +127,13 @@ const handleShare = async (poemId) => {
     <NavBar> 
     <li><a href="/">Welcome</a></li>
     <li><a href="/random-words"> Create Poems</a></li>
-    <li><a href="/About">Logout</a></li>
+    <li><a href="/" onClick={(e) => {
+    e.preventDefault(); // Prevent the default link behavior
+    handleLogout(); // Call the logout function
+  }} style={{ cursor: 'pointer' }}>
+    Logout
+  </a>
+  </li>
   </NavBar>
     <div className="user-profile">
       <div className="navigation">{/* Navigation component or links here */}</div>
