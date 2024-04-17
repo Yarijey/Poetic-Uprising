@@ -37,7 +37,7 @@ const UrlSharedPoem = () => {
     return (
         <div className="url-shared-poems">
             <h1>This Poem is shared to you with 🖤 and 💅🏽</h1>
-            <p>{poem.content}</p>
+            <p className="public-poem-content">{poem.content}</p>
         </div>
     );
 };

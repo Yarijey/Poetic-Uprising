@@ -10,7 +10,7 @@
   font-family: 'Sunflower', sans-serif;
   font-weight: 700;
   font-style: normal;
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
 }
 
@@ -29,9 +29,9 @@
 
 .poem-link {
   display: block;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
-  color: #5a4fcf; /* A deeper purple for links for better contrast */
+  color: #ED45D4; /* A magenta for links for better contrast */
   font-weight: bold;
 }
 

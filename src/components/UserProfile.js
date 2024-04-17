@@ -140,7 +140,7 @@ const handleShare = async (poemId) => {
       <div className="navigation">{/* Navigation component or links here */}</div>
       <div className="user-info">{/* User information display */}</div>
       <div className="poems-section">
-        <h2 className="user-profile-texth2">My Poems</h2>
+        <h1 className="user-profile-texth1">My Poems</h1>
         {poems.map((poem) => (
           <div key={poem._id} className="poem">
             <p>{poem.content}</p>

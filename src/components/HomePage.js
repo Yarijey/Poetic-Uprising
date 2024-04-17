@@ -77,8 +77,11 @@ const HomePage = ({ onAuthenticationSuccess }) => {
       About</a></li>
   </NavBar>
   <Modal isOpen={isAboutOpen} onClose={handleCloseAbout}>
-        <h3>Poetic Uprisings</h3>
-        <p>is designed to help users create and share their poetry. It includes features like...</p>
+        <h1>Poetic Uprisings</h1>
+        <p> This app is a vibrant celebration of QTBIPOC poetry, inviting you to delve deep into your creative essence while magnifying the powerful and diverse voices that define our community.
+        <p>Inspired by "Nepantla: An Anthology Dedicated to Queer Poets of Color" our app's database is rich with words that echo the spirit and experiences of queer poets of color.</p>
+<p>With these words at your fingertips, you are empowered to weave, refine, and birth your own poems. Share your creations with friends and immerse yourself in a dynamic community where each poem serves as a bridge, connecting you to others. Through this interaction, you'll exchange ideas, inspire, and be inspired, all while enriching the poetic landscape with your unique voice and vision.</p>
+</p>
       </Modal>
     <div className="home-container">
       {activeForm === null && (

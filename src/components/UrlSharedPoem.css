@@ -1,7 +1,13 @@
 .url-shared-poems {
-  font-family: 'DM Mono', monospace;
-  color: #110E0B;
+ text-align: left;
   background-color: yellow; /* A light purple to differentiate from UserProfile */
   padding: 5vh 5vh;
   min-height: 100vh;
+}
+
+.public-poem-content {
+color: #110E0B;
+text-align: justify;
+font-size: 1.8em;
+font-family: 'DM Mono', monospace;
 }

@@ -122,12 +122,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 3rem; /* Much smaller heading size for phone screens */
+    font-size: 5rem; /* Much smaller heading size for phone screens */
     padding-left: 10px; /* Adjust padding for smaller screen */
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     padding-left: 10px;
   }
 
